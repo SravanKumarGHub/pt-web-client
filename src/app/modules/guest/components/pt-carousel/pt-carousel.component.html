@@ -1,0 +1,26 @@
+
+  
+  <mat-carousel
+  timings="250ms ease-in"
+  [autoplay]="true"
+  [interval]="timeInterval"
+  color="accent"
+  maxWidth="auto"
+  [proportion]="proportionCount"
+  [slides]="slideCount"
+  [loop]="true"
+  [hideArrows]="false"
+  [hideIndicators]="false"
+  [useKeyboard]="true"
+  [useMouseWheel]="false"
+  orientation="ltr"
+  slideHeight="100%"
+>
+  <mat-carousel-slide
+    #matCarouselSlide
+    *ngFor="let slide of slides; let i = index"
+    [image]="slide.image"
+    overlayColor="#00000040"
+    [hideOverlay]="false"
+  ></mat-carousel-slide>
+</mat-carousel>

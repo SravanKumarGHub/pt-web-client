@@ -1,0 +1,69 @@
+
+
+
+  <div class="card" style="margin-top: 10px;margin-left: 13px;margin-right: 37px;">
+
+    <div class="card-header" style="font-size: medium;font-weight: bold;">
+       
+        <div class="row col-md-12">
+           <div class="col-md-10" style="text-align: left;padding: 0px;">
+            Upcoming Events
+           </div>
+           <div class="col-md-2" style="text-align: right;padding: 0px;">
+             <a (click)="expandCollapse(expanded)"class="icoinstagram anchor-footer" title="instagram"> 
+                 <i *ngIf="expanded" class="fa fa-window-minimize" aria-hidden="true" style="font-size: larger;color: black;"></i>
+                 <i *ngIf="!expanded"  class="fa fa-window-maximize" aria-hidden="true" style="font-size: larger;color: black;"></i>
+             </a>
+           </div>
+        </div>
+     </div>
+     <div class="card-body" *ngIf="expanded">    
+        <div class="row col-md-12" *ngFor="let event of events">
+            <div class="col-md-6" style="padding: 15px;">
+                <img   style="width: 550px;" [src]="transformImage(event.promoPicture)">
+            </div>
+            <div class="col-md-6"  style="padding: 15px;">
+                <table class="col-md-12">
+                    <tr  class="col-md-12" >
+                    <td class="col-md-12">
+                       <p style="    font-size: 2.25rem;
+                       line-height: 2rem;
+                       letter-spacing: .00893em;    font-family: Gilroy-Bold,Arial;
+                    font-weight: 700;margin-bottom: 50px;">{{event.eventName}}</p>
+                    </td>
+                    </tr>
+                    <tr  class="col-md-12">
+                    <td class="col-md-12">
+                       <p style="font-family: Gilroy-Medium,Arial; 
+                       font-weight: 600; 
+                        font-size: 1.75rem; 
+                        line-height: 1.375rem; 
+                       letter-spacing: .01471em;">Naveen Jain</p>
+                    </td>
+                    </tr>
+                    <tr  class="col-md-12">
+                       <td class="col-md-12"> 
+                          <p style="font-family: Gilroy-Medium,Arial;
+                          font-weight: 400;
+                          font-size: .875rem;
+                          line-height: 1.1875rem;
+                          letter-spacing: .03214em;">Iconic American Entrepreneur, Founder of Moon Express, Viome</p>
+                       </td>
+                       </tr>
+                       <tr  class="row col-md-12">
+                        <td class="col-md-6">
+                          <p> {{event.eventTime | date:'medium'}}</p>
+                        </td>
+                        <td class="col-md-6">
+                            <button class="btn btn-primary" style="border-radius: 20px;"> Know more...</button>  
+                          </td>
+                        </tr>
+                             </table>
+                          
+            </div>
+        </div>
+      
+    </div>
+  </div>
+
+

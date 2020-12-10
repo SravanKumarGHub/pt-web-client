@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.carousel-indicators{
+    margin-left: 10px !important;
+}
+
+  
+.anchor-footer{
+    text-decoration:none !important;
+  }
+
+  /* .carousel-inner {
+
+    max-height: 500px;
+    
+    } */
+    /* .carousel-inner img {
+        min-height: 500px;
+        max-height: 500px;
+    }
+    .carousel{
+        min-height: 500px;
+        max-height: 500px;
+        height: 500px !important;
+    } */
+    .carousel-slide{
+        height: 500px !important;
+    }
+
+    .top-nav-items{
+        margin: 0px !important;
+        margin-left: 100px !important;
+        margin-top:15px !important;
+        font-size: 20px;
+    line-height: 1.5;
+    font-family: Gilroy-Medium,Arial;
+    letter-spacing: .01471em;
+        /* display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0; */
+    }
+    .nav-link{
+        margin:0px 15px 0px 0px;
+        /* font-weight: bold; */
+        color:black;
+    }
+
+.mv-navi a.mv-navi__pill {
+    border: 1px solid #595e67;
+}
+.log-in:hover{
+    background-color: black;
+    color: white;
+}
+ div .card .bg-primary{
+    background-color: white !important;
+    color: black;
+ }

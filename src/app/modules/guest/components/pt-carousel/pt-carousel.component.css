@@ -1,0 +1,23 @@
+.carousel-inner {
+
+    max-height: 600px;
+    
+
+    }
+
+    img {
+
+        max-height: 500px;
+        
+        }
+        .carousel-inner img {
+
+            max-height: 500px;
+        }
+
+        .carousel-indicators{
+            margin-left: 10px !important;
+        }   
+        .carousel{
+            height: 500px;
+        }

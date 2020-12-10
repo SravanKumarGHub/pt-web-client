@@ -1,0 +1,25 @@
+<div class="card" style="margin-top: 10px;margin-left: 13px;margin-right: 37px;">
+    <div class="card-header" style="font-size: medium;font-weight: bold;">
+       
+        <div class="row col-md-12">
+           <div class="col-md-10" style="text-align: left;padding: 0px;">
+             Recent Event Videos
+           </div>
+           <div class="col-md-2" style="text-align: right;padding: 0px;">
+             <a (click)="expandCollapse(expanded)"class="icoinstagram anchor-footer" title="instagram"> 
+                 <i *ngIf="expanded" class="fa fa-window-minimize" aria-hidden="true" style="font-size: larger;color: black;"></i>
+                 <i *ngIf="!expanded" class="fa fa-window-maximize" aria-hidden="true" style="font-size: larger;color: black;"></i>
+             </a>
+           </div>
+        </div>
+     </div>
+    <div class="card-body" *ngIf="expanded">    
+        <div class="row col-md-12">
+           <div class="col-md-6"  *ngFor="let pastEvent of pastEvents">
+            <iframe style="width: 550px;height: 417px;" [src]="pastEvent.safeUrl"></iframe>
+           </div>
+          
+        </div>
+      
+    </div>
+  </div>

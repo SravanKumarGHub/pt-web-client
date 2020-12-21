@@ -7,6 +7,7 @@ import { ContactPage } from './pages/contact/contact.page';
 import { EventsPage } from './pages/events/events.page';
 import { HomePage } from './pages/home/home.page';
 import { SpeakerDetailsComponent } from './pages/speaker-details/speaker-details.component';
+import { SpeakerRegistrationComponent } from './pages/speaker-registration/speaker-registration.component';
 import { SpeakersPage } from './pages/speakers/speakers.page';
 
 const routes :Routes = [
@@ -41,6 +42,10 @@ const routes :Routes = [
           {
             path:'contact',
             component:ContactPage
+          },
+          {
+            path:'speakerRegistration',
+            component:SpeakerRegistrationComponent
           }
       ]
     },

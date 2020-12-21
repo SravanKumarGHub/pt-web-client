@@ -21,6 +21,7 @@ import { AdminEventsService } from './services/admin-events.service';
 import { SpeakersPage } from './pages/speakers/speakers.page';
 import { PtEventsComponent } from './components/pt-events/pt-events.component';
 import { EventsPage } from './pages/events/events.page';
+import { SpeakerRegistrationComponent } from './pages/speaker-registration/speaker-registration.component';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { EventsPage } from './pages/events/events.page';
         MatCarouselModule.forRoot()],
         providers:[SpeakerService,NavigationService,AdminEventsService],
     exports: [RecentSpeakersComponent],
-    declarations: [HomePage,EventsPage,SpeakersPage,PtCarouselComponent,BackButtonDirective, RecentSpeakersComponent, RecentEventsComponent, UpcomingEventsComponent, PtHighlightsComponent, CarouselComponent, PtEventsComponent]
+    declarations: [HomePage,EventsPage,SpeakersPage,PtCarouselComponent,BackButtonDirective, RecentSpeakersComponent, RecentEventsComponent, UpcomingEventsComponent, PtHighlightsComponent, CarouselComponent, PtEventsComponent, SpeakerRegistrationComponent]
 })
 
 export class GuestModule {

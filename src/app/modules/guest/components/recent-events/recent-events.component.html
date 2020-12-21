@@ -1,6 +1,5 @@
 <div class="card" style="margin-top: 10px;margin-left: 13px;margin-right: 37px;">
-    <div class="card-header" style="font-size: medium;font-weight: bold;">
-       
+    <div class="card-header" style="font-size: medium;font-weight: bold;">       
         <div class="row col-md-12">
            <div class="col-md-10" style="text-align: left;padding: 0px;">
              Recent Event Videos
@@ -17,9 +16,7 @@
         <div class="row col-md-12">
            <div class="col-md-6"  *ngFor="let pastEvent of pastEvents">
             <iframe style="width: 550px;height: 417px;" [src]="pastEvent.safeUrl"></iframe>
-           </div>
-          
-        </div>
-      
+           </div>          
+        </div>      
     </div>
   </div>

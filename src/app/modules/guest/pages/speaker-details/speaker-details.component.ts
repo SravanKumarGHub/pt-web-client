@@ -1,11 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { SpeakerService } from '../../services/speaker.service';
 import { Location } from '@angular/common';
 import { NavigationService } from '../../services/navigation.service';
 import { Speakers } from '../../models/speakers';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AdminEventsService } from '../../services/admin-events.service';
+import { Events } from '../../models/events';
+
 @Component({
   selector: 'pt-speaker-details',
   templateUrl: './speaker-details.component.html',
@@ -19,9 +22,12 @@ export class SpeakerDetailsComponent implements OnInit {
     oneLineProfile: '',phone :'',profilePicture : '',description :'',isApproved : false };
 
   speakerId:number=-1;
+  events:Events[]=[];
+
 
   constructor(private speakerService:SpeakerService,private httpClient:HttpClient,private sanitizer:DomSanitizer,
-    private location: Location,private navigation: NavigationService,private route: ActivatedRoute) { }
+    private location: Location,private navigation: NavigationService,private route: ActivatedRoute,
+    private eventsService:AdminEventsService) { }
 
   ngOnInit(): void {
 
@@ -42,7 +48,7 @@ export class SpeakerDetailsComponent implements OnInit {
           (speakers:any) =>
           {
             speakers.forEach((speaker:Speakers) => {
-              speaker.profilePicture = this.format('data:image/jpg;base64',speaker.profilePicture);
+              speaker.profilePicture = this.format('data:image/jpg;base64',speaker.profilePicture,',');
             });
             this.speakers = speakers;
             this.speakerService.setCurrentSpeakers(this.speakers);
@@ -52,6 +58,26 @@ export class SpeakerDetailsComponent implements OnInit {
       }
     
       console.log(this.speakerDetail);
+
+      this.eventsService.getEvents().subscribe(
+        (events:Events[]) =>
+        {
+          events.forEach((event:Events) => {
+            if(event.promoPicture.indexOf('data:image/jpg;base64') < 0)
+                event.promoPicture = this.format('data:image/jpg;base64',event.promoPicture,',');
+            debugger
+            let url = this.format('https://www.youtube.com/embed/', event.promoVideo,'');
+            event.safeUrl = this.getSafeUrl(url);
+          });
+          this.eventsService.setCurrentEvents(this.events);
+          this.events = events;
+          this.events = this.events.filter(event => event.speakerId ==  this.speakerId)
+          // this.eventsService.setCurrentEvents(this.events);
+          console.log( this.events);
+        }
+    );
+
+      
     });
 
   }
@@ -61,8 +87,11 @@ export class SpeakerDetailsComponent implements OnInit {
   backWithLocation() {
     this.location.back();
   }
-  format(string1: string, string2: string):string {
-    return `${string1},${string2}`;
+  format(string1: string, string2: string, delimiter:string):string {
+    if(delimiter =='')
+      return `${string1}${string2}`;
+    else    
+      return `${string1}${delimiter}${string2}`;
 }
 
   transformImage(base64ImageString:string){
@@ -71,5 +100,8 @@ export class SpeakerDetailsComponent implements OnInit {
     // })
     return this.sanitizer.bypassSecurityTrustResourceUrl(base64ImageString);
   }
-
+  getSafeUrl(url:string):SafeResourceUrl {
+    let safeUrl:SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    return safeUrl;
+  }
 }

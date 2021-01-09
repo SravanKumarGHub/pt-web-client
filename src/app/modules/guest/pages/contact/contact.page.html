@@ -1,41 +1,106 @@
-<div class="col-xl-12">
-    <img class="img-fluid" src="assets/images/u14.png" />
+
+<div class="card m-3">
+    <div class="card-header" style="    font-size: 16px;
+    font-weight: normal;">Contact</div>
+    <div class="card-body">
+        <form  [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+               
+                <div class="form-group col">
+                    <label>First Name</label>
+                    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group col">
+                    <label>Last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                    </div>
+                </div>
+             
+            </div>
+            <div class="form-row">
+               
+                <div class="form-group col">
+                    <label>Email</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                  
+                </div>
+
+                <div class="form-group col">
+                    <label>Phone</label>
+                    <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+                    <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                        <div *ngIf="f.phone.errors.required">Phone is required</div>
+                    </div>
+                </div>
+             
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Message</label>
+                    <textarea formControlName="message" class="form-control" 
+                    [ngClass]="{ 'is-invalid': submitted && f.message.errors }"
+                    style="height:150px"></textarea>
+                   
+                    <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+                        <div *ngIf="f.message.errors.required">Message is required</div>
+                    </div>
+                </div>               
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Register</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </form>
+    </div>
 </div>
-<div class="container-fluid" style="background-color: rgba(101, 60, 240, 1);">
-    <h2 class="text-center" style="color:white">Our Organization</h2>
-    <p style="color:white">
-        <span>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to tell a story and let your users know a little more about you.</span>
-    </p><p><span>&nbsp;</span></p><p style="color:white">
-        <span>This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who you are.</span>
 
-    </p>
-    <br />
-    <br />
-
-</div>
-<div class="container-fluid mt-5" style="background-color:  rgba(9, 77, 116, 1);">
-    <h2 class="text-center" style="color:white">Our Mission</h2>
-    <p style="color:white">
-        <span>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to tell a story and let your users know a little more about you.</span>
-    </p><p><span>&nbsp;</span></p><p style="color:white">
-        <span>This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who you are.</span>
-
-    </p>
-    <br />
-    <br />
-
-</div>
-<div class="container-fluid mt-5 text-center">
-    <h3>
-        PyramidTimes
-
-    </h3>
-    <p>#208, Saketh Paradise,</p>
-    <p>Owners Court (East),</p>
-    <p>Kasavanahalli, Bengaluru,</p>
-    <p>Karnataka, INDIA</p>
-
-    <p>Email : info@thrivetec.com</p>
-    <p>Mobile : +91-88844 46599</p>
-
+<div class="card m-3">
+    <div class="card-header" style="font-size: 16px;
+    font-weight: normal;">Address</div>
+    <div class="card-body">
+       <table class="row col-md-12">
+            <tr class="col-md-12">
+               <td>
+                #208, Saketh Paradise,
+               </td>
+            </tr>
+            <tr class="col-md-12">
+                <td>
+                    Owners Court (East),
+                </td>
+             </tr>
+             <tr class="col-md-12">
+                <td>
+                    Kasavanahalli, Bengaluru,
+                </td>
+             </tr>
+             <tr class="col-md-12">
+                <td>
+                    Karnataka, INDIA
+                </td>
+             </tr>
+             <tr class="col-md-12">
+                <td>
+                    Email : info@thrivetec.com
+                </td>
+             </tr>
+             <tr class="col-md-12">
+                <td>
+                    Mobile : +91-88844 46599
+                </td>
+             </tr>
+       </table>
+    </div>
 </div>

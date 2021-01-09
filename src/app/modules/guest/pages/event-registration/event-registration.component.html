@@ -1,0 +1,66 @@
+<div>
+    <pt-event-registration [hideDescription]="true" [hideRegistrationButton]="true"  [data]="events" [speakerId]="speakerId"></pt-event-registration>
+</div>
+<div class="card m-3">
+    <div class="card-header" style="    font-size: 16px;
+    font-weight: normal;">Event Registration</div>
+    <div class="card-body">
+        <form [formGroup]="eventRegistrationFG" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+              
+                <div class="form-group col">
+                    <label>Event Name</label>
+                    <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Event Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label>Email</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                  
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Country</label>
+                    <input type="text" formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" />
+                    <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                        <div *ngIf="f.country.errors.required">country is required</div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label>Location</label>
+                    <input type="text" formControlName="location" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.location.errors }" />
+                    <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+                        <div *ngIf="f.location.errors.required">Location is required</div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Mobile</label>
+                    <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+                    <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                        <div *ngIf="f.phone.errors.required">topic is required</div>
+                    </div>
+                </div>
+                <div class="form-group col" style="display: none;">
+                    <label>SpeakerId</label>
+                    <input type="text" formControlName="speakerId" class="form-control"   /> 
+                </div>
+            </div>
+           
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Register</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

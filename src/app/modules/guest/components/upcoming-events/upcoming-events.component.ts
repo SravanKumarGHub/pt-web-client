@@ -21,7 +21,8 @@ export class UpcomingEventsComponent implements OnInit {
     this.eventsService.getEvents().subscribe(
       (events: any) => {
         events.forEach((event: Events) => {
-          event.promoPicture = this.format('data:image/jpg;base64', event.promoPicture);
+          if(event.promoPicture.indexOf('data:image/jpg;base64') < 0)
+               event.promoPicture = this.format('data:image/jpg;base64', event.promoPicture);
         });
         this.events = events;
         this.eventsService.setCurrentEvents(this.events);

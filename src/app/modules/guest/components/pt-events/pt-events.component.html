@@ -1,5 +1,20 @@
 
-<div class = "card card-primary " *ngFor="let event of events" style="margin-top:10px">
+
+ 
+ 
+<div class="row col-md-12" style="margin-top: 10px;">
+   <div class="col-md-12">
+      <label for="start" style="font-size: 20px;font-weight: bolder;">Start date:</label>
+
+      <input type="date" style="font-size: 20px;margin-left: 10px;" id="startDate" placeholder="select date" name="event-start" [(ngModel)]="startDate" >
+      <label for="start" style="font-size: 20px;;margin-left: 30px;font-weight: bolder;">End date:</label>
+
+      <input type="date" style="font-size: 20px;margin-left: 10px;" id="endDate" name="event-end" placeholder="select date" [(ngModel)]="endDate"   >
+      <span style="margin-left: 20px;"><button class="btn btn-secondary" style="font-size: 20px;"  (click)="filterData()" > Filter Data</button> </span>
+   </div>
+    
+</div>
+<div class = "card card-primary " *ngFor="let event of filteredEvents" style="margin-top:20px">
     <!-- <div class = "card-header bg-primary">
        <h3 class = "card-title" style="font-size: 28px;
        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -44,7 +59,7 @@
                   <p> {{event.eventTime | date:'medium'}}</p>
                 </td>
                 <td class="col-md-6">
-                    <button class="btn btn-primary" style="border-radius: 20px;"> Know more...</button>  
+                    <button class="btn btn-primary" style="border-radius: 20px;" [routerLink]="['/home/eventDetails', event.speakerId, event.id]"> Know more...</button>  
                   </td>
                 </tr>
                      </table>

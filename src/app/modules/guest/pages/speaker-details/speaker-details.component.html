@@ -9,11 +9,14 @@
         <div class="col-md-9">
             <div class="card-body" style="font-family: Gilroy-Medium,Arial;
                 font-weight: 400;
-                font-size: 16px;
-                line-height: 1.375rem;
+                font-size: 1.5rem;
+                line-height: 1.5;
                 letter-spacing: .01471em;">
                 <p class="card-text">{{speakerDetail.description}}</p>
             </div>
         </div>
     </div>
+</div>
+<div>
+    <pt-event-registration [data]="events" [speakerId]="speakerId"></pt-event-registration>
 </div>
